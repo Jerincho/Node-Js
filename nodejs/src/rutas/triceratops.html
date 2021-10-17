@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>• Tricératops •</title>
+</head>
+<body>
+	<style type="text/css">
+		body {
+			background-image: url('../../../res/bg.jpg');
+			background-size: 100%;
+			background-position: fixed;
+			background-attachment: fixed;
+			font-family: "Segoe UI";
+		}
+		.dinoImagen{
+			width: 350px;
+			height: 350px;
+		}
+		#main {
+			width: 60vw;
+			background-color:  rgba(255, 255, 255, 0.8);
+			text-align: center;
+			margin: auto;
+		}
+		table {
+			border-collapse: collapse;
+			width: 30vw;
+			margin: auto;
+		}
+		#tr{
+			background-color: #240066;
+			color: white;
+		}
+		td {
+			border-collapse: all;
+			border:  1px solid black;
+			padding: 7px;
+		}
+	</style>
+	<br><br>
+	<div id="main">
+		<br>
+		<h1>• Tricératops •</h1>
+		<h5>Información general</h5>
+		<table>
+			<tr id="tr">
+				<td colspan="2" id="dinoN2"></td>
+			</tr>
+			<tr>
+				<td rowspan="3" id="dinoImg"></td>
+				<td id="dinoN1"></td>
+			</tr>
+			<tr>
+				<td id="dinoFam"></td>
+			</tr>
+			<tr>
+				<td id="dinoPres"></td>
+			</tr>
+			<tr>
+				<td id="dinoDes" colspan="2"></td>
+			</tr>
+		</table>
+	<br><br><br>
+	</div>
+
+	<br><br><br>
+		<script>
+var json = `
+{
+	"Dinosaurios":{
+		"id001": {
+			"nComun": "Braquiosaurio",
+			"nCientifico": "Brachiosaurus altithorax",
+			"presencia": "154 - 153",
+			"fam": "Brachiosauridae",
+			"img": "https://cdn1.dinosaurioss.com/wp-content/uploads/2016/11/Brachiosaurus.jpg",
+			"desc": "Brachiosaurus tiene el cuello extremadamente largo, un cráneo pequeño y gran tamaño general, todos los cuales son rasgos típicos de los saurópodos. Sin embargo, Brachiosaurus tiene proporciones que son diferentes de la mayoría de los saurópodos, siendo las patas delanteras más largas que las patas traseras, característica a la que hace referencia su nombre, y su cola era más corta en proporción a su cuello que otros saurópodos del Jurásico."
+
+		},
+		"id002": {
+			"nComun": "Tricératops",
+			"nCientifico": "Triceratops",
+			"presencia": "68 - 66",
+			"fam": "Ceratopsidae",
+			"img": "https://www.everythingdinosaur.com/wp-content/uploads/2017/12/Wild_Safari_Triceratops.jpg",
+			"desc": "Es uno de los últimos géneros en aparecer antes del gran evento de extinción masiva del Cretácico-Terciario.Poseía una gran gola ósea (plataforma craneal posterior) y tres cuernos, un cuerpo grande sobre cuatro fornidas patas, y varias similitudes con respecto al moderno rinoceronte. Triceratops es uno de los más reconocidos de todos los dinosaurios. Aunque compartiera el territorio con el temible Tyrannosaurus y fuera cazado por él,"
+		},
+		"id003": {
+			"nComun": "Estegosauro",
+			"nCientifico": "Stegosaurus",
+			"presencia": "156 - 144",
+			"fam": "Stegosauridae",
+			"img": "https://360view.hum3d.com/zoom/Animals/Stegosaurus_1000_0001.jpg",
+			"desc": "Debido a sus distintivas espinas de la cola y placas, Stegosaurus es uno de los más reconocidos dinosaurios. Al menos tres especies han sido identificadas en la porción superior de la Formación Morrison, del oeste de Estados Unidos, y se han encontrado restos de por lo menos 80 individuos."
+		},
+		"id004": {
+			"nComun": "Tiranosaurio Rex (T. Rex)",
+			"nCientifico": "Tyrannosaurus rex ",
+			"presencia": "68 - 66",
+			"fam": "Tyrannosauridae",
+			"img": "https://cdn.shopify.com/s/files/1/0049/0872/products/animal-figure-papo-brown-t-rex-dinosaur-figure-55001-2.jpg?v=1603923147",
+			"desc": "Su distribución en el continente fue mucho más amplia que otros tiranosáuridos. Comúnmente abreviado como T. rex, y castellanizado como tiranosaurio es una figura común en la cultura popular. Fue uno de los últimos dinosaurios no avianos que existieron antes de la extinción masiva del Cretácico-Terciario. Como otros tiranosáuridos, T - Rex fue un carnívoro bípedo con un enorme cráneo equilibrado por una cola larga y pesada"
+		},
+		"id005": {
+			"nComun": "Velociraptor",
+			"nCientifico": "Velociraptor mongoliensis",
+			"presencia": "75 - 71",
+			"fam": "Dromaeosauridae",
+			"img": "https://www.papo-france.com/682/velociraptor.jpg",
+			"desc": "Fue un carnívoro bípedo, con una cola larga y rígida, y unas garras grandes con forma de hoz en cada pata, que probablemente le facilitaba el matar a sus presas. A diferencia de otros dromeosáuridos, el velociráptor poseía un cráneo bajo y alargado, y un hocico chato, dirigido hacia arriba. Poseía patas traseras de gran longitud, lo que expresa (al igual que el nombre) su aparente gran velocidad."
+		}
+	}
+}`;
+		var objJson = JSON.parse(json);
+		
+		document.getElementById('dinoN2').innerHTML = "<i>" + objJson.Dinosaurios.id002.nCientifico + "</i>"
+		document.getElementById('dinoImg').innerHTML = "<img src='" + objJson.Dinosaurios.id002.img + "' class='dinoImagen' >"
+		document.getElementById('dinoN1').innerHTML = "Nombre común: " + objJson.Dinosaurios.id002.nComun
+		document.getElementById('dinoFam').innerHTML = "Familia: " + objJson.Dinosaurios.id002.fam
+		document.getElementById('dinoPres').innerHTML = "Habitó hace casi " + objJson.Dinosaurios.id002.presencia + " millones de años A.C."
+		document.getElementById('dinoDes').innerHTML = objJson.Dinosaurios.id002.desc
+	</script>
+</body>
+</html>
